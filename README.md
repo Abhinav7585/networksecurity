@@ -76,6 +76,49 @@ Step-3: Data Validation
     And this report.YAML will be shared inside articat folder where we will be creating a folder "Data validation Artifact"
 
 
+Step-3: Data Tranformation
+    Here we implement DataTransformationConfig, DataTransformationComponent and DataTransformationArtifact is its output..
+
+    In Data Transimission, w.k.t firstly we create out "Data Transformation Config". In Data Transimission Config we will be having the info about:
+        - Data Validation Dir
+        - Valid Data Dir
+        - Invalid Data Dir
+        - Valid Train file path
+        - Invalid Train file path
+        - Drift report file path
+    We will be having this info ,this info already came from data validation
+
+    Then we go to next ste where we start our implementation of data Transformation i.e "Initiate Data Transformation"
+    As soon as we initiate it we go to the data validation artifact and then we "Read all the train and test data"
+
+    Then we do Data Transformation step..
+
+    In Data Transformation, what we basically do is that we will be take our "train dataframe" and we will drop the target column => Then we will get "Target Feature Train Dataframe" and "Input Feature Train Dataframe" and then we can combine these and create train array
+
+    Then we can use "SMOTE tomek" if our dataset is unbalanced ..But our dataset is balanced..So here no need to use..
+    'SMOTE tomek' is a Feature Engineering process
+
+    But we will take the "training Dataset" and we can see some "NAN" values. So we will try to replace this Nan value with something
+    For that we are going to implement or use one "imputer technique".
+    It can be 
+        - Robust Scaler technique
+        - Simple Imputer technique
+        - KNN imputer
+    we are going to use KNN imputer. We are going to create a pipeline.
+    Once we do this we will get "Preprocessor Object" => "preprocessing.pkl"
+    We will alos apply this particular step to my test data also..
+    This pkl file also be saved and will create a folder called as "Data Tranformation", Inside my "Artifacts" folder....
+
+    Basically here we are going to handle Missing values and we will try to create a pipline for KNN imputer
+
+    For train data we apply "fit_transform" and for test data we apply "transform"
+
+    
+
+
+
+
+
 
 
 
