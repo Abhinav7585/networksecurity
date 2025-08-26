@@ -178,8 +178,36 @@ MLFlow =>
     -> We can also compare different experiments..
 
 
+Whenever we use MLflow tracking we used to probably track in our local folder,
+But how can we track all the info related to MLflow, where we are logging about experiments,logging about the best model in a "remote repository".
+-> "Remote repository" means it will not be in local, but it will be in a specific URL..,where you can see it out.
+-> For that we use "Dagshub".
+-> Dagshub just gives you remote repositories where you can run millions of experiments as you like.
+-> Similar ot github but here you can track many things..
 
+-> AIM for Dagshub: Whatever "mlruns" that we probably run in my local, it should be available in dagshub..
+-> SO whenever I run my code in local , my experiment should be logged in dagshub.. 
 
+-> Whenever I probably go and run this code, "mlflow.log_metric()" and all knows where we really need to go ahead and commit, where we need to create our "mlruns"
+or which remote repo we need to track our entire data.
+
+-> This time my "mlruns" will not be created in the local machine 
+
+-> When we run, it first accesses our repo in daghub and it has initialized MLflow to track this experiment
+
+-> Entire training will happen in the local machine but once the entire MLflow tracking code will get executed, that entire data will get stored over here(in dagshub) i.e the "mlruns" folder will be stored there in dagshub.
+
+-> Why are we doing this?
+    -> MLflow is completely opensource and I have a remote repository which is also opensource, which we can use it for free and we can directly give that URL to anyone to probably track the experiment.
+    
+    -> So if you take a paid account of Dagshub, then lets say you want to probably share the entire reports of the performance metrics or anything that you want.
+    
+    ->With the help of this remote repo, we will be able to just give the URL. People will be able to check it out.
+
+    -> This is how collaboratively you will be able to work in a team.
+
+    -> Therefore our main idea is:
+    Whatever commits or whatever tracking of experiments that we are doing, we are not doing it in local, Even though MLflow runs in local, we are instead doing it in a remote repository which can probably be shared with anyone 
 
 
 
