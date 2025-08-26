@@ -114,7 +114,68 @@ Step-3: Data Tranformation
     For train data we apply "fit_transform" and for test data we apply "transform"
 
     
+Step-4: Model Trainer Component
+    Now we have "data tranformation artifacts"
+    Data Transformation basically means if we want to do any "Feature Engineering",In our case, we have applied how to replace "Nan values". We used 
+    "KNNImputer" to replace Nan Values
+    We Created the pickle file, so that this pickle file can be used anywhere, based on our model training
+    Now after we got the data transformation artifact, now we really need to focus on the model trainer component..
+    Now again w.r.t our model trainer component ,we should create our "modelTrainerConfig"
 
+    This "modelTrainerComponent" the "dataTransformationArtifact" should be provided as input and then we need to alos give input w.r.t to the "modelTrainerConfig".
+
+    This "modelTrainerConfig" should have the details after training the model, where we should probably save thhe model itself...In which folder and all..
+
+    Then after the "modelTrainerComponent" is done, the output of "modelTrainerComponent" is "modelTrainerArtifact"
+    Inside this artifact, we specifically focus on 2 important things i.e
+        - We create our "model.pkl" file =>Once our model is trained,we get this..
+        - And from "dataTranformationArtifact", whichever pickle file we have used for our pipeline. So this pickle file should also be coming over here
+    
+    Architecture of "ModelTrainerComponent"
+
+    So initially when we start with the "modelTrainerConfig" .These are inital details:
+        - model trainer dir => Location where we will be saving our model
+        - trained model file path => Entire model file path where we really wnat to save 
+        - expected accuracy 
+        - model config file path => Info related to model config can be stored here...
+    These are the basic info that I will be giving when we initiate the "modelTrainerConfig"
+    Then we "initiate the Model Training"
+
+    Then we "Load numpy array data" and that we are basically taking to take it from "dataTranformationArtifact"
+
+    Then we do a split for train and test array i.e "x train array","y train array","x test array","x test array"
+
+    Then we will train our model w.r.t our training data and then we will try multiple models. Once we get the best model and we will try to compare the best score.
+    So if I probably find out the best model w.r.t best score, we are going to probably take that and we will convert that into a pickle file...
+    To find best model we use "calculate metrics"
+
+
+
+NOTE:
+    I developed this project based on industry standards(acc to what I researched)
+    -> Now we will be able to track all these things in our "MLFlow"
+    -> "MLFlow" is an opensorce tool to completely handle your ML lifecycle of a ML project w.r.t experimentation, w.r.t selecting multiple models, comparing multiple models, comparing multiple metrics and all
+
+
+MLFlow =>
+    -> Once we got the "best model", whatever "classfication_metric" we usually get, we really need to make sure that we track the entire thibg in MLflow..
+
+    -> "Mlflow" is an opensource tool which is very useful to manage the entire lifecycle of a data science project..
+    Here you'll be able to make sure that you put all your performance metrics you can, any no.of experiments you are probably doing, finding the best model along with any classification metrics that is there..
+    You can actually store in all this kind of experiments with help of MLflow
+    And you can also visulize them and compare them w.r.t various experiments itself.
+
+    -> "mlruns" folder will be created, inside that we will be able to see all the experiments that we performed and its details
+
+    -> Inorder to check this particular experiment, How do you check it with the help of MLflow ??
+    
+    -> In command prompt type "mlflow ui" => we will get an url opened and if we click on it, There we will be able to see the entire experiment logged in this URL..
+
+    -> With MLflow you will be able to see the entire logs of experiments, what performance metrics it captured and which is your model file
+
+    -> If we change our algorithm and run it again, then one more file will be created 
+
+    -> We can also compare different experiments..
 
 
 

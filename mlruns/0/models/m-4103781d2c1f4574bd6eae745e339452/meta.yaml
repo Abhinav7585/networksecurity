@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/lahar/OneDrive/Desktop/Projects/Network%20Security/mlruns/0/models/m-4103781d2c1f4574bd6eae745e339452/artifacts
+creation_timestamp: 1756221714802
+experiment_id: '0'
+last_updated_timestamp: 1756221726906
+model_id: m-4103781d2c1f4574bd6eae745e339452
+model_type: null
+name: model
+source_run_id: 4a09df01b54740649ce5484aa75347f9
+status: 2
+status_message: null
