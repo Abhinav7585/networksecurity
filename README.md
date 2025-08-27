@@ -209,6 +209,37 @@ or which remote repo we need to track our entire data.
     -> Therefore our main idea is:
     Whatever commits or whatever tracking of experiments that we are doing, we are not doing it in local, Even though MLflow runs in local, we are instead doing it in a remote repository which can probably be shared with anyone 
 
+Step 5- Model Pusher Implementation
+    -> We need to take "preprocessor.pkl" from data_transformation and best_model i.e "model.pkl" file and push it into one common folder which we are going to do prediction..
+
+    -> This "final_models" will be my final model that I will be using..
+
+    -> We are pushing these both models in one source and we can actually go ahead and put in an S3 bucket or any other final cloud platform..
+    
+    -> We use this preprocessor.pkl and mode.pkl files for predictions and testing our model...
+
+    -> Instead of locally pushing both into a folder, we can write more code and push into S3 bucket
+
+
+Step 6- Model Training pipeline implementation
+
+
+Step 7- Batch prediction pipeline
+    -> Now here our is to create a function to do a batch prediction.
+    -> Lets say that If I give a CSV file with all my "New Data" as input and we will predict the output...
+
+    -> Whatever outputs Iam getting I will be displayig it over here in "table.html"
+
+    ->"This HTML is basically like our frontend application, where we are just going to display all the details w.r.t our predicted data"
+
+    ->In "valid_data" folder we will have our "test.csv" file in which input features are present and we need to predict its output 
+
+    -> In app.py, we should be able to read the entire templates folder, for that in "FASTAPI" we use "Jinja2 template" 
+
+    -> This Jinja2 template is responsibe in picking up all the HTML files that are present inside this templates folder
+
+    
+
 
 
 

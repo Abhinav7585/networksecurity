@@ -1,0 +1,24 @@
+<!-- Whatever outputs Iam getting I will be displayig it over here -->
+<!-- "This HTML is basically like our frontend application, where we are just going to display all the details w.r.t our predicted data" -->
+<!-- In "valid_data" folder we will have our "test.csv" file in which input features are present and we need to predict its output  -->
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Data Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Predicted Data</h2>
+    {{ table | safe }}
+</body>
+</html>

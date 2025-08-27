@@ -6,8 +6,8 @@ import sys
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 
-class NetworkModel:
 # Inside network model, we have created two important things: 1. Initialization of both my "preprocessor.pkl" and "model.pkl" files
+class NetworkModel:
     def __init__(self,preprocessor,model):
         try:
             self.preprocessor = preprocessor
